@@ -1,5 +1,4 @@
 import os
-import PyPDF2
 from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv
 import prompts
@@ -16,7 +15,7 @@ max_tokens = 500
 
 # data about the user
 name = "jahez"
-reminder_text = ""
+reminder_text = "2pm Lunch"
 
 # prompts
 system_message = prompts.system_message
