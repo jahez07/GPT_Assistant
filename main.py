@@ -22,12 +22,20 @@ reminder_text = ""
 system_message = prompts.system_message
 prompt = prompts.generate_prompt(name, reminder_text)
 
-
+messages = [
+    {"role": "system", "content": system_message},
+    {"role": "user", "content": prompt}
+]
 
 
 # helper function
 def personal_assistat():
     completion = client.chat.completions.create(
         model = model,
-
+        messages = messages,
+        temperature = temperature,
+        max_tokens = max_tokens,
     )
+    return completion.choices[0].message.content
+
+print(personal_assistat)
